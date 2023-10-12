@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chart.js</title>
+</head>
+<body>
+
+    <div style="display: flex;">
+        <div style="width: 50%;">
+            <canvas id="myChart"></canvas>
+        </div>
+        <div style="width: 50%;">
+            <canvas id="myBar"></canvas>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
+<script>
+
+    var ctx = document.getElementById("myChart");
+    var bar = document.getElementById("myBar");
+
+    new Chart(ctx, {
+		type : 'line',
+		data : {
+			labels : [ "12:00", "13:00", "14:00", "15:00", "16:00", "17:00"],
+			datasets : [
+                    {
+							data : [ 30, 29, 28, 25, 22, 23 ],
+							label : "Temperatura",
+							borderColor : "red",
+							fill : false
+					},
+					{
+						data : [80, 82, 80, 85, 80, 83],
+						label : "Umidade",
+						borderColor : "blue",
+						fill : false
+					}]
+		}
+	});
+
+    new Chart(bar, {
+		type: 'bar',
+		data: {
+			labels: ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho"],
+			datasets: [
+				{
+					data: [22, 24, 27, 23, 20, 18],
+					label: "Temperatura média",
+					backgroundColor: "red",
+					fill: false
+				},
+				{
+					data: [90, 89, 93, 87, 88, 82],
+					label: "Umidade Média",
+					backgroundColor: "blue",
+					fill: false
+				}
+			]
+		}
+    })
+
+</script>
+</html>
